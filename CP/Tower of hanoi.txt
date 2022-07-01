@@ -1,0 +1,63 @@
+#include<iostream>
+ 
+ 
+using namespace std;
+int sqrt(int n)
+{
+    double s=n,error=0.0001;
+    while((s-n/s)>error){
+        s=(s+n/s)/2;
+    }
+    return s;
+}
+ 
+int main()
+{
+   int t,n;
+   cin>>t;
+   while(t--){
+      cin>>n;
+      int cnt=0,x=1;
+      int a[n+5];
+      for(int i=0;i<n;i++){
+        a[i]=0;
+      }
+      while(1)
+      {
+          bool flag=false;
+          for(int j=0;j<n;j++){
+            if(a[j]==0){
+                a[j]=x;
+                flag=true;
+                break;
+            }
+            else{
+                int y=a[j];
+                if(sqrt(x+y)*sqrt(x+y)==x+y){
+                    a[j]=x;
+                    flag=true;
+                    break;
+                }
+            }
+          }
+          if(flag==true) cnt++;
+          else break;
+          x++;
+      }
+      cout<<cnt<<endl;
+   }
+}
+
+
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{ 	
+	int t,n; 
+	cin >> t;
+    while(t--)
+	{ 
+	cin >> n; 
+	cout << (n+1)*(n+1)/2-1 << endl; 
+	}
+}
